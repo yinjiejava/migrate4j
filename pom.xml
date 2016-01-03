@@ -9,7 +9,7 @@
     <version>0.05-releases</version>
 
     <properties>
-        <java.version>5</java.version>
+        <java.version>1.8</java.version>
     </properties>
 
     <dependencies>
