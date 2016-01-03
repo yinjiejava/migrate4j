@@ -7,3 +7,6 @@ derby.jar
 testDerby
 .settings
 test1
+/target/
+.classpath
+.project
