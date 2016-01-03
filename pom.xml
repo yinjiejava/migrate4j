@@ -6,7 +6,7 @@
 
     <groupId>net.sf.migrate4j</groupId>
     <artifactId>migrate4j</artifactId>
-    <version>0.05-SNAPSHOT</version>
+    <version>0.05-releases</version>
 
     <properties>
         <java.version>5</java.version>
@@ -27,6 +27,15 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+    
+    <!-- 设定团队持续集成发布包服务器 -->
+	<distributionManagement>
+		<repository>
+			<id>nexus-thirdparty</id>
+			<name>Team Nexus thirdparty Repository</name>
+			<url>http://121.41.17.205:18081/nexus/content/repositories/thirdparty/</url>
+		</repository>
+	</distributionManagement>
 
     <build>
         <plugins>
