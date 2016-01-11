@@ -93,7 +93,8 @@ public class VersionQuery {
 		String query;
 		
 		String versionTableNew = cfg.getFullQualifiedVersionTable();
-		if (Execute.tableExists(conn, versionTableNew)) {
+		boolean temp = Execute.tableExists(conn, versionTableNew);
+		if (temp) {
 
 	    	String qVersionTab = g.wrapName(versionTableNew);
 	    	String qVersionCol = g.wrapName(ConfigStore.VERSION_FIELD_NAME);

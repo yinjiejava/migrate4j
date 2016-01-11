@@ -383,7 +383,7 @@ public class Configure {
 		return CFG.get();
 	}
 	
-	protected synchronized static void setDefaultConfiguration(ConfigStore cfg) {
+	public synchronized static void setDefaultConfiguration(ConfigStore cfg) {
 		CFG.set(cfg);
 	}
 	
