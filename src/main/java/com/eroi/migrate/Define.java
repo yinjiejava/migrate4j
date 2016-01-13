@@ -191,6 +191,43 @@ public class Define {
 	}
 	
 	/**
+     * 为列添加注释
+     *
+     */
+    public static class COMMENT implements ColumnOption<String> {
+        private String comment;
+        
+        public COMMENT(String comment) {
+            this.comment = comment;
+        }
+
+        public COMMENT() {
+            this("");
+        }       
+
+        public void decorate(Column column) {
+            column.setComment(comment);
+        }
+    }
+    
+    /**
+     * Allows specifying whether column accepts null
+     * 
+     * @param notnull
+     */
+    public static COMMENT comment(String comment) {
+        return new COMMENT(comment);
+    }
+    
+    /**
+     * Indicates column accepts null values;
+     * 
+     */
+    public static COMMENT comment() {
+        return comment("");
+    }
+	
+	/**
 	 * Indicates the column automatically increments.
 	 *
 	 */

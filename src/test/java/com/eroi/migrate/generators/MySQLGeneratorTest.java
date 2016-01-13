@@ -34,19 +34,19 @@ public class MySQLGeneratorTest extends TestCase {
     }
 
     public void testMakeColumnString_PrimaryKeyNonIncrementing() {
-        Column column = new Column("basic", Types.INTEGER, -1, true, false, null, false);
+        Column column = new Column("basic", Types.INTEGER, -1, true, false, null, false, "");
         String columnString = generator.makeColumnString(column, false);
         assertEquals("`basic` INT NOT NULL PRIMARY KEY", columnString);
     }
 
     public void testMakeColumnString_PrimaryKeyIncrementing() {
-        Column column = new Column("basic", Types.INTEGER, -1, true, false, null, true);
+        Column column = new Column("basic", Types.INTEGER, -1, true, false, null, true, "");
         String columnString = generator.makeColumnString(column, false);
         assertEquals("`basic` INT NOT NULL AUTO_INCREMENT PRIMARY KEY", columnString);
     }
 
     public void testMakeColumnString_VarcharWithDefault() {
-        Column column = new Column("basic", Types.VARCHAR, 50, false, false, "NA", false);
+        Column column = new Column("basic", Types.VARCHAR, 50, false, false, "NA", false, "");
         String columnString = generator.makeColumnString(column, false);
         assertEquals("`basic` VARCHAR(50) NOT NULL DEFAULT 'NA'", columnString);
     }

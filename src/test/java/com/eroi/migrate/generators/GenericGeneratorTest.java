@@ -27,7 +27,7 @@ public class GenericGeneratorTest extends TestCase {
 	}
 	
 	public void testMakeColumnString_PrimaryKeyNonIncrementing() {
-		Column column = new Column("basic", Types.INTEGER, -1, true, false, null, false);
+		Column column = new Column("basic", Types.INTEGER, -1, true, false, null, false, "");
 		
 		String columnString = generator.makeColumnString(column);
 		
@@ -35,7 +35,7 @@ public class GenericGeneratorTest extends TestCase {
 	}
 	
 	public void testMakeColumnString_PrimaryKeyIncrementing() {
-		Column column = new Column("basic", Types.INTEGER, -1, true, false, null, true);
+		Column column = new Column("basic", Types.INTEGER, -1, true, false, null, true, "");
 		
 		String columnString = generator.makeColumnString(column);
 		
@@ -43,7 +43,7 @@ public class GenericGeneratorTest extends TestCase {
 	}
 	
 	public void testMakeColumnString_VarcharWithDefault() {
-		Column column = new Column("basic", Types.VARCHAR, 50, false, false, "NA", false);
+		Column column = new Column("basic", Types.VARCHAR, 50, false, false, "NA", false, "");
 		
 		String columnString = generator.makeColumnString(column);
 		
@@ -54,8 +54,8 @@ public class GenericGeneratorTest extends TestCase {
 		String expected = "CREATE TABLE \"sample\" (\"id\" INT NOT NULL PRIMARY KEY, \"desc\" VARCHAR(50) NOT NULL);";
 		
 		Column[] columns = new Column[2];
-		columns[0] = new Column("id", Types.INTEGER, -1, true, false, null, false);
-		columns[1] = new Column("desc", Types.VARCHAR, 50, false, false, null, false);
+		columns[0] = new Column("id", Types.INTEGER, -1, true, false, null, false, "");
+		columns[1] = new Column("desc", Types.VARCHAR, 50, false, false, null, false, "");
 	
 		Table table = Define.table("sample", columns);
 		
@@ -65,7 +65,7 @@ public class GenericGeneratorTest extends TestCase {
 	}
 	
 	public void testAlterColumnStatement() {
-		Column column = new Column("id",  Types.VARCHAR, 50, false, false, "NA", false);
+		Column column = new Column("id",  Types.VARCHAR, 50, false, false, "NA", false, "");
 		
 		String output = generator.alterColumnStatement(column, "table");
 		

@@ -27,8 +27,8 @@ public class Migration_1 implements Migration {
 	public static Table getTable() {
 		Column[] columns = new Column[2];
 		
-		columns[0] = new Column("id", Types.INTEGER, -1, true, false, null, true);
-		columns[1] = new Column(DESC_COLUMN_NAME, Types.VARCHAR, 50, false, true, null, false);
+		columns[0] = new Column("id", Types.INTEGER, -1, true, false, null, true, "");
+		columns[1] = new Column(DESC_COLUMN_NAME, Types.VARCHAR, 50, false, true, null, false, "");
 		
 		return new Table(TABLE_NAME, columns);
 	}

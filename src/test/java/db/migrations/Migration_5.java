@@ -37,9 +37,9 @@ public class Migration_5 implements Migration {
 	private Table getPersonTable() {
 		Column[] columns = new Column[3];
 		
-		columns[0] = new Column(PARENT_COLUMN_KEY, Types.INTEGER, -1, true, false, null, true);
-		columns[1] = new Column("name", Types.VARCHAR, 50, false, false, null, false);
-		columns[2] = new Column("email", Types.VARCHAR, 50, false, false, null, false);
+		columns[0] = new Column(PARENT_COLUMN_KEY, Types.INTEGER, -1, true, false, null, true, "");
+		columns[1] = new Column("name", Types.VARCHAR, 50, false, false, null, false, "");
+		columns[2] = new Column("email", Types.VARCHAR, 50, false, false, null, false, "");
 		
 		return Define.table(PARENT_TABLE_NAME, columns);
 	}
@@ -47,9 +47,9 @@ public class Migration_5 implements Migration {
 	private Table getEmployeeTable() {
 		Column[] columns = new Column[3];
 		
-		columns[0] = new Column("id", Types.INTEGER, -1, true, false, null, true);
-		columns[1] = new Column(CHILD_COLUMN_NAME, Types.INTEGER, -1, false, false, null, false);
-		columns[2] = new Column("hireDate", Types.DATE, -1, false, false, null, false);
+		columns[0] = new Column("id", Types.INTEGER, -1, true, false, null, true, "");
+		columns[1] = new Column(CHILD_COLUMN_NAME, Types.INTEGER, -1, false, false, null, false, "");
+		columns[2] = new Column("hireDate", Types.DATE, -1, false, false, null, false, "");
 		
 		return Define.table(CHILD_TABLE_NAME, columns);
 	}

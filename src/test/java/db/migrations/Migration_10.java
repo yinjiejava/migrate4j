@@ -31,8 +31,8 @@ public class Migration_10 extends AbstractMigration {
 	protected Column[] getColumns() {
 		Column[] columns = new Column[2];
 		
-		columns[0] = new Column("id", Types.INTEGER, -1, true, false, null, true);
-		columns[1] = new Column("desc", Types.VARCHAR, 50, false, true, null, false);
+		columns[0] = new Column("id", Types.INTEGER, -1, true, false, null, true, "");
+		columns[1] = new Column("desc", Types.VARCHAR, 50, false, true, null, false, "");
 		
 		return columns;
 	}

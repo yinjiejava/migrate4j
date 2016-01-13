@@ -246,6 +246,12 @@ public class MySQLGenerator extends GenericGenerator {
     	if (!suppressPrimaryKey && column.isPrimaryKey()) {
     	    retVal.append("PRIMARY KEY ");
     	}
+    	
+    	//为项目增加注释功能
+    	//TODO ...
+    	if (null != column.getComment() && column.getComment().length() > 0) {
+            retVal.append(" COMMENT \"" + column.getComment() + "\"");
+        }
 
     	return retVal.toString().trim();
     }
@@ -286,7 +292,7 @@ public class MySQLGenerator extends GenericGenerator {
 		Validator.notNull(tableName, "Table name can not be null");
 		
 		Column column = getExistingColumn(oldColumnName, tableName);
-		Column newColumn = new Column(newColumnName, column.getColumnType(), column.getLength(), column.isPrimaryKey(), column.isNullable(), column.getDefaultValue(), column.isAutoincrement());
+		Column newColumn = new Column(newColumnName, column.getColumnType(), column.getLength(), column.isPrimaryKey(), column.isNullable(), column.getDefaultValue(), column.isAutoincrement(), column.getComment());
 		
 		StringBuffer query = new StringBuffer();
 		

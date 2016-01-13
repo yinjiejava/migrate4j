@@ -11,10 +11,12 @@ public class Column {
 	private boolean nullable;
 	private Object defaultValue;
 	private boolean autoincrement;
-	private boolean unicode; 	
+	private boolean unicode;
+	private String comment;
+	
 	
 	public Column(String columnName, int columnType) {
-		this(columnName, columnType, -1, false, true, null, false);
+		this(columnName, columnType, -1, false, true, null, false, "");
 	}
 		
 	public Column(String columnName, 
@@ -23,7 +25,8 @@ public class Column {
 				  boolean primaryKey,
 				  boolean nullable, 
 				  Object defaultValue, 
-				  boolean autoincrement) {
+				  boolean autoincrement,
+				  String comment) {
 		this.columnName = columnName;
 		this.columnType = columnType;
 		this.length = length;
@@ -31,6 +34,7 @@ public class Column {
 		this.nullable = ! primaryKey && nullable;
 		this.defaultValue = defaultValue;
 		this.autoincrement = autoincrement;
+		this.comment = comment;
 		
 		unicode = false;
 		precision = null;
@@ -94,7 +98,17 @@ public class Column {
 		this.unicode = unicode;
 	}
 	
-	public Integer getPrecision() {
+	public String getComment()
+    {
+        return comment;
+    }
+
+    public void setComment(String comment)
+    {
+        this.comment = comment;
+    }
+
+    public Integer getPrecision() {
 		return precision;
 	}
 	

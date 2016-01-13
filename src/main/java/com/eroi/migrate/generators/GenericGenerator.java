@@ -351,7 +351,8 @@ public class GenericGenerator implements Generator {
 	/**
 	 * Uses JDBC meta data to determine foreignKey existence
 	 */
-	public boolean foreignKeyExists(String foreignKeyName, String childTableName) {
+	@SuppressWarnings("resource")
+    public boolean foreignKeyExists(String foreignKeyName, String childTableName) {
 		Validator.notNull(foreignKeyName, "Foreign key name can not be null");
 		Validator.notNull(childTableName, "Child table name can not be null");
 
@@ -414,7 +415,8 @@ public class GenericGenerator implements Generator {
 	/**
 	 * Uses JDBC meta data to determine index existence
 	 */
-	public boolean isPrimaryKey(String columnName, String tableName) {
+	@SuppressWarnings("resource")
+    public boolean isPrimaryKey(String columnName, String tableName) {
 		Validator.notNull(columnName, "Column name can not be null");
 		Validator.notNull(tableName, "Table name can not be null");
 
@@ -465,7 +467,8 @@ public class GenericGenerator implements Generator {
 	/**
 	 * Uses JDBC meta data to determine index existence
 	 */
-	public boolean indexExists(String indexName, String tableName) {
+	@SuppressWarnings("resource")
+    public boolean indexExists(String indexName, String tableName) {
 		Validator.notNull(indexName, "Index name can not be null");
 		Validator.notNull(tableName, "Table name can not be null");
 
@@ -512,7 +515,8 @@ public class GenericGenerator implements Generator {
 	/**
 	 * Uses JDBC meta data to determine table existence
 	 */
-	public boolean tableExists(String tableName) {
+	@SuppressWarnings("resource")
+    public boolean tableExists(String tableName) {
 		try {
 			ResultSet resultSet = null;
 
@@ -704,6 +708,7 @@ public class GenericGenerator implements Generator {
 		Object defaultObject = null;
 		boolean isPrimaryKey = false;
 		boolean isAutoIncrement = false;
+		String comment = "test";
 
 		try {
 			ResultSet resultSet = null;
@@ -768,7 +773,7 @@ public class GenericGenerator implements Generator {
 		}
 
 		if (type >= 0) {
-			return new Column(columnName, type, length, isPrimaryKey, nullable, defaultObject, isAutoIncrement);
+			return new Column(columnName, type, length, isPrimaryKey, nullable, defaultObject, isAutoIncrement, comment);
 		}
 
 		throw new SchemaMigrationException("Could not locate column " + columnName + " in table " + tableName);

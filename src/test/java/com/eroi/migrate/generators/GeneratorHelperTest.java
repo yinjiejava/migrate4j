@@ -45,13 +45,13 @@ public class GeneratorHelperTest extends TestCase {
 	
 	public void testCountPrimaryKeyColumns() {
 		Column[] columns = new Column[3];
-		columns[0] = new Column("primary1", Types.INTEGER, -1, true, false, null, true);
+		columns[0] = new Column("primary1", Types.INTEGER, -1, true, false, null, true, "");
 		columns[1] = new Column("column1", Types.INTEGER);
 		columns[2] = new Column("column2", Types.INTEGER);
 		
 		assertEquals(1, GeneratorHelper.countPrimaryKeyColumns(columns));
 		
-		columns[2] = new Column("primary2", Types.INTEGER, -1, true, true, "NA", false);
+		columns[2] = new Column("primary2", Types.INTEGER, -1, true, true, "NA", false, "");
 		
 		assertEquals(2, GeneratorHelper.countPrimaryKeyColumns(columns));
 		
