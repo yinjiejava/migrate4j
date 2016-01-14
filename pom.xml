@@ -33,7 +33,7 @@
 		<repository>
 			<id>nexus-thirdparty</id>
 			<name>Team Nexus thirdparty Repository</name>
-			<url>http://121.41.17.205:18081/nexus/content/repositories/thirdparty/</url>
+			<url>http://121.41.17.205:18081/nexus/content/repositories/releases/</url>
 		</repository>
 	</distributionManagement>
 
